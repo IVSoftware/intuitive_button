@@ -12,6 +12,7 @@ namespace intuitive_buttons
         public MainForm()
         {
             InitializeComponent();
+            // Assign the icons to the buttons
             customButton0.Text = "\uE800";
             customButton1.Text = "\uE801";
             customButton2.Text = "\uE802";
@@ -29,12 +30,8 @@ namespace intuitive_buttons
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
-            if (!DesignMode)
-            {
-                initFont();
-            }
+            if (!DesignMode) initFont();
         }
-
         private void initFont()
         {
             if(_privateFontCollection == null)
@@ -51,10 +48,17 @@ namespace intuitive_buttons
             Font = GlyphFont;
         }
 
+        private static PrivateFontCollection _privateFontCollection = null;
+        public static Font GlyphFont { get; private set; }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing) _privateFontCollection?.Dispose();
+            base.Dispose(disposing);
+        }
+
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-
             Image = new Bitmap(Resources.buttonDown, Size);
             Refresh();
         }
@@ -63,19 +67,6 @@ namespace intuitive_buttons
             base.OnMouseUp(e);
             Image = null;
             Refresh();
-        }
-
-        private static PrivateFontCollection _privateFontCollection = null;
-
-        public static Font GlyphFont { get; private set; }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _privateFontCollection?.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

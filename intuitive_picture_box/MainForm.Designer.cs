@@ -31,9 +31,9 @@ namespace intuitive_buttons
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.customButton0 = new intuitive_buttons.CustomButton();
-            this.customButton3 = new intuitive_buttons.CustomButton();
             this.customButton1 = new intuitive_buttons.CustomButton();
             this.customButton2 = new intuitive_buttons.CustomButton();
+            this.customButton3 = new intuitive_buttons.CustomButton();
             this.customButton4 = new intuitive_buttons.CustomButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -63,9 +63,9 @@ namespace intuitive_buttons
             // customButton0
             // 
             this.customButton0.Location = new System.Drawing.Point(89, 3);
-            this.customButton0.Name = "customButton4";
+            this.customButton0.Name = "customButton0";
             this.customButton0.Size = new System.Drawing.Size(80, 80);
-            this.customButton0.TabIndex = 2;
+            this.customButton0.TabIndex = 1;
             this.customButton0.Text = "";
             this.customButton0.UseCompatibleTextRendering = true;
             this.customButton0.UseVisualStyleBackColor = true;
@@ -75,7 +75,7 @@ namespace intuitive_buttons
             this.customButton1.Location = new System.Drawing.Point(175, 3);
             this.customButton1.Name = "customButton1";
             this.customButton1.Size = new System.Drawing.Size(80, 80);
-            this.customButton1.TabIndex = 0;
+            this.customButton1.TabIndex = 2;
             this.customButton1.Text = "";
             this.customButton1.UseCompatibleTextRendering = true;
             this.customButton1.UseVisualStyleBackColor = true;
@@ -85,7 +85,7 @@ namespace intuitive_buttons
             this.customButton2.Location = new System.Drawing.Point(261, 3);
             this.customButton2.Name = "customButton2";
             this.customButton2.Size = new System.Drawing.Size(80, 80);
-            this.customButton2.TabIndex = 0;
+            this.customButton2.TabIndex = 3;
             this.customButton2.Text = "";
             this.customButton2.UseCompatibleTextRendering = true;
             this.customButton2.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@ namespace intuitive_buttons
             this.customButton3.Location = new System.Drawing.Point(347, 3);
             this.customButton3.Name = "customButton3";
             this.customButton3.Size = new System.Drawing.Size(80, 80);
-            this.customButton3.TabIndex = 1;
+            this.customButton3.TabIndex = 4;
             this.customButton3.Text = "";
             this.customButton3.UseCompatibleTextRendering = true;
             this.customButton3.UseVisualStyleBackColor = true;
@@ -103,7 +103,7 @@ namespace intuitive_buttons
             // customButton4
             // 
             this.customButton4.Location = new System.Drawing.Point(3, 3);
-            this.customButton4.Name = "button1";
+            this.customButton4.Name = "customButton4";
             this.customButton4.Size = new System.Drawing.Size(80, 80);
             this.customButton4.TabIndex = 0;
             this.customButton4.Text = "";
@@ -127,6 +127,7 @@ namespace intuitive_buttons
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        // private System.Windows.Forms.Button customButton0;
         private intuitive_buttons.CustomButton customButton0;
         private intuitive_buttons.CustomButton customButton1;
         private intuitive_buttons.CustomButton customButton2;
