@@ -35,23 +35,22 @@ namespace intuitive_buttons
         }
         private void initFont()
         {
-            if(GlyphFontUp == null)
+            if (privateFontCollection == null)
             {
-                using (var privateFontCollection = new PrivateFontCollection())
-                {
-                    var path = Path.Combine(Path.GetDirectoryName(
-                        Assembly.GetEntryAssembly().Location),
-                        "Fonts",
-                        "flashlight-filter-history-favorite-search.ttf");
-                    privateFontCollection.AddFontFile(path);
-                    var fontFamily = privateFontCollection.Families[0];
-                    GlyphFontUp = new Font(fontFamily, 16F);
-                    GlyphFontDown = new Font(fontFamily, 15F);
-                }
+                privateFontCollection = new PrivateFontCollection();
+                var path = Path.Combine(Path.GetDirectoryName(
+                    Assembly.GetEntryAssembly().Location),
+                    "Fonts",
+                    "flashlight-filter-history-favorite-search.ttf");
+                privateFontCollection.AddFontFile(path);
+                var fontFamily = privateFontCollection.Families[0];
+                GlyphFontUp = new Font(fontFamily, 16F);
+                GlyphFontDown = new Font(fontFamily, 15F);
             }
             Font = GlyphFontUp;
             ForeColor = GlyphColorUp;
         }
+        PrivateFontCollection privateFontCollection = null;
         public static Font GlyphFontUp { get; private set; } = null;
         public static Font GlyphFontDown { get; private set; } = null;
         public static Color GlyphColorUp { get; } = Color.Teal;
@@ -65,7 +64,8 @@ namespace intuitive_buttons
                 refCount--;
                 if (refCount == 0)
                 {
-                    GlyphFontUp.Dispose();
+                    GlyphFontUp?.Dispose();
+                    privateFontCollection?.Dispose();
                 }
             }
             base.Dispose(disposing);
