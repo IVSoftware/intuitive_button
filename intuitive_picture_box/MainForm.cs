@@ -54,12 +54,15 @@ namespace intuitive_buttons
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-            BackgroundImage = Resources.buttonDown;
+
+            Image = new Bitmap(Resources.buttonDown, Size);
+            Refresh();
         }
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
-            BackgroundImage = null;
+            Image = null;
+            Refresh();
         }
 
         private static PrivateFontCollection _privateFontCollection = null;
