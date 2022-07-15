@@ -62,6 +62,7 @@ namespace intuitive_buttons
             // 
             // customButton0
             // 
+            this.customButton0.ForeColor = System.Drawing.Color.Cyan;
             this.customButton0.Location = new System.Drawing.Point(89, 3);
             this.customButton0.Name = "customButton0";
             this.customButton0.Size = new System.Drawing.Size(80, 80);
@@ -72,6 +73,7 @@ namespace intuitive_buttons
             // 
             // customButton1
             // 
+            this.customButton1.ForeColor = System.Drawing.Color.Cyan;
             this.customButton1.Location = new System.Drawing.Point(175, 3);
             this.customButton1.Name = "customButton1";
             this.customButton1.Size = new System.Drawing.Size(80, 80);
@@ -82,6 +84,7 @@ namespace intuitive_buttons
             // 
             // customButton2
             // 
+            this.customButton2.ForeColor = System.Drawing.Color.Cyan;
             this.customButton2.Location = new System.Drawing.Point(261, 3);
             this.customButton2.Name = "customButton2";
             this.customButton2.Size = new System.Drawing.Size(80, 80);
@@ -92,6 +95,7 @@ namespace intuitive_buttons
             // 
             // customButton3
             // 
+            this.customButton3.ForeColor = System.Drawing.Color.Cyan;
             this.customButton3.Location = new System.Drawing.Point(347, 3);
             this.customButton3.Name = "customButton3";
             this.customButton3.Size = new System.Drawing.Size(80, 80);
@@ -102,6 +106,7 @@ namespace intuitive_buttons
             // 
             // customButton4
             // 
+            this.customButton4.ForeColor = System.Drawing.Color.Cyan;
             this.customButton4.Location = new System.Drawing.Point(3, 3);
             this.customButton4.Name = "customButton4";
             this.customButton4.Size = new System.Drawing.Size(80, 80);

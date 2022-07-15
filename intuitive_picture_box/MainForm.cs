@@ -20,12 +20,13 @@ namespace intuitive_buttons
             customButton4.Text = "\uE804";
         }
     }
-    class CustomButton : Button
+    partial class CustomButton : Button
     {
         public CustomButton()
         {
             UseCompatibleTextRendering = true;
             TextAlign = ContentAlignment.MiddleCenter;
+            refCount++;
         }
         protected override void OnHandleCreated(EventArgs e)
         {
@@ -34,25 +35,37 @@ namespace intuitive_buttons
         }
         private void initFont()
         {
-            if(_privateFontCollection == null)
+            if(GlyphFontUp == null)
             {
-                _privateFontCollection = new PrivateFontCollection();
+                var privateFontCollection = new PrivateFontCollection();
                 var path = Path.Combine(Path.GetDirectoryName(
                     Assembly.GetEntryAssembly().Location),
                     "Fonts",
                     "flashlight-filter-history-favorite-search.ttf");
-                _privateFontCollection.AddFontFile(path); 
-                var fontFamily = _privateFontCollection.Families[0];
-                GlyphFont = new Font(fontFamily, 16F);
+                privateFontCollection.AddFontFile(path); 
+                var fontFamily = privateFontCollection.Families[0];
+                GlyphFontUp = new Font(fontFamily, 16F);
+                GlyphFontDown = new Font(fontFamily, 15F);
             }
-            Font = GlyphFont;
+            Font = GlyphFontUp;
+            ForeColor = GlyphColorUp;
         }
+        public static Font GlyphFontUp { get; private set; } = null;
+        public static Font GlyphFontDown { get; private set; } = null;
+        public static Color GlyphColorUp { get; } = Color.Teal;
+        public static Color GlyphColorDown { get; } = Color.DarkCyan;
 
-        private static PrivateFontCollection _privateFontCollection = null;
-        public static Font GlyphFont { get; private set; }
+        private static int refCount = 0;
         protected override void Dispose(bool disposing)
         {
-            if (disposing) _privateFontCollection?.Dispose();
+            if (disposing)
+            {
+                refCount--;
+                if (refCount == 0)
+                {
+                    GlyphFontUp.Dispose();
+                }
+            }
             base.Dispose(disposing);
         }
 
@@ -60,13 +73,15 @@ namespace intuitive_buttons
         {
             base.OnMouseDown(e);
             Image = new Bitmap(Resources.buttonDown, Size);
-            Refresh();
+            Font = GlyphFontDown;
+            ForeColor = GlyphColorDown;
         }
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
+            Font = GlyphFontUp;
+            ForeColor = GlyphColorUp;
             Image = null;
-            Refresh();
         }
     }
 }
