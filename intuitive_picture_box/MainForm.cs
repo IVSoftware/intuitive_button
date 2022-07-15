@@ -37,15 +37,17 @@ namespace intuitive_buttons
         {
             if(GlyphFontUp == null)
             {
-                var privateFontCollection = new PrivateFontCollection();
-                var path = Path.Combine(Path.GetDirectoryName(
-                    Assembly.GetEntryAssembly().Location),
-                    "Fonts",
-                    "flashlight-filter-history-favorite-search.ttf");
-                privateFontCollection.AddFontFile(path); 
-                var fontFamily = privateFontCollection.Families[0];
-                GlyphFontUp = new Font(fontFamily, 16F);
-                GlyphFontDown = new Font(fontFamily, 15F);
+                using (var privateFontCollection = new PrivateFontCollection())
+                {
+                    var path = Path.Combine(Path.GetDirectoryName(
+                        Assembly.GetEntryAssembly().Location),
+                        "Fonts",
+                        "flashlight-filter-history-favorite-search.ttf");
+                    privateFontCollection.AddFontFile(path);
+                    var fontFamily = privateFontCollection.Families[0];
+                    GlyphFontUp = new Font(fontFamily, 16F);
+                    GlyphFontDown = new Font(fontFamily, 15F);
+                }
             }
             Font = GlyphFontUp;
             ForeColor = GlyphColorUp;
